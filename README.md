@@ -1,0 +1,1 @@
+# seehuhn.de/go/slice
