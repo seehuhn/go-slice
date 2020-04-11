@@ -58,13 +58,15 @@ func (w *Writer) Write(p []byte) (n int, err error) {
 	return
 }
 
-// Seek sets the offset for the next Write to offset, interpreted according to
-// whence: io.SeekStart means relative to the start of the file, io.SeekCurrent
-// means relative to the current offset, and io.SeekEnd means relative to the
-// end.  Seek returns the new offset relative to the start of the file.
+// Seek sets the offset for the next Write to offset, interpreted
+// according to whence: io.SeekStart means relative to the start of
+// the file, io.SeekCurrent means relative to the current offset, and
+// io.SeekEnd means relative to the end.  Seek returns the new offset
+// relative to the start of the file.
 //
-// If the new position would be outside the range 0, ..., len(Buf), the current
-// position is not modified and ErrOutOfBounds is returned.
+// If the new position would be outside the range 0, ..., len(Buf),
+// the current position is not modified and ErrOutOfBounds is
+// returned.  Otherwise, the returned error is always nil.
 func (w *Writer) Seek(offset int64, whence int) (int64, error) {
 	switch whence {
 	case 0: // io.SeekStart
